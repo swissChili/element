@@ -1,5 +1,5 @@
 # element
-![](element.svg)
+![](element.png)
 ## A ZSH Prompt
 
 
