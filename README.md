@@ -1,6 +1,6 @@
 ![](element.png)
 # A ZSH Prompt
-
+![](screenshot.png)
 
 ## Install
 
