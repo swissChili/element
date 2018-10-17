@@ -10,7 +10,7 @@ git_prompt_info() {
 	echo "git@$fg_bold[magenta]$(current_branch)"
 }
 
-function spacing() {
+spacing() {
 	local git=$(git_prompt_info)
 	if [ ${#git} != 0 ]; then
 		((git=${#git}))
@@ -18,7 +18,7 @@ function spacing() {
 		git=0
 	fi
 	local termwidth
-	termwidth=$(($(tput cols) + 8 - ${#$(get_pwd)} -  ${git}))
+	termwidth=$(($(tput cols) + 7 - ${#$(get_pwd)} -  ${git} - ${#$(bakery)}))
 	ch=" "
 
 	if [ ${git} = 0 ]; then
@@ -26,10 +26,17 @@ function spacing() {
 	else
 		printf "$fg[red]"'%*s' "$termwidth" | tr ' ' "$ch"
 	fi
-	
+}
+
+bakery() {
+	if [ -f ./Bakery ]; then
+		echo "🍞 "
+	else
+		echo "  "
+	fi
 }
 
 # prints it all
 PROMPT='
-$reset_color$fg[blue]$(get_pwd)$(spacing)$fg[magenta]$(git_prompt_info)
+$reset_color$fg[blue]$(get_pwd)$(spacing)$fg[magenta]$(bakery)$(git_prompt_info)
 $fg[cyan]$ $reset_color'
