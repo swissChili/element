@@ -37,6 +37,5 @@ bakery() {
 }
 
 # prints it all
-PROMPT='
-$reset_color$fg[blue]$(get_pwd)$(spacing)$fg[magenta]$(bakery)$(git_prompt_info)
+PROMPT='$reset_color$fg[blue]$(get_pwd)$(spacing)$fg[magenta]$(bakery)$(git_prompt_info)
 $fg[cyan]$ $reset_color'
